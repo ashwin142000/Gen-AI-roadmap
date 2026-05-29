@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>16-Week Gen AI Expert Roadmap</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body class="bg-gray-950 text-gray-200 font-sans min-h-screen">
+  
+  <div id="root">
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; text-align: center; padding: 20px;">
+      <h2 style="font-size: 24px; color: white; font-weight: bold; margin-bottom: 10px;">Loading Roadmap...</h2>
+      <p style="color: #9CA3AF;">If this screen stays here for more than 3 seconds, a script was blocked.</p>
+      <p style="color: #9CA3AF; margin-top: 10px;"><b>Press F12</b> (or Right-Click -> Inspect) and open the <b>Console</b> tab to see the exact error.</p>
+    </div>
+  </div>
+
+  <script type="text/babel" data-presets="react">
+    // --- 1. FIREBASE SETUP ---
+    const firebaseConfig = {
+      apiKey: "AIzaSyCs26V2vAc6Knk-etZXz6QCvEoLgzwEbJ8",
+      authDomain: "gen-ai-roadmap-61c58.firebaseapp.com",
+      projectId: "gen-ai-roadmap-61c58",
+      storageBucket: "gen-ai-roadmap-61c58.firebasestorage.app",
+      messagingSenderId: "757610453012",
+      appId: "1:757610453012:web:962f94fa0e6a6a5748ef01",
+      measurementId: "G-2XHVBHZ0YC"
+    };
+
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+    }
+    const db = firebase.firestore();
+    const auth = firebase.auth();
+
+    // --- 2. EXACT PDF DATA ---
+    const ROADMAP_DATA = [
+      {
+        id: "w1", title: "Week 1: Foundations Al Basics & Setup", goal: "Goal: Build strong basics + set up tools for Al automation.",
+        tasks: [
+          "1. Learn basics of Al, ML, GenAl, and Automation (differences + use cases).",
+          "2. Install Python, VS Code, Jupyter Notebook.",
+          "3. Learn Git & GitHub basics for version control.",
+          "4. Get familiar with ChatGPT, Claude, Gemini, Perplexity.",
+          "5. Explore Al applications across industries (Education, HR, Marketing, Healthcare).",
+          "6. Create a Notion/Google Doc to track your Al learning journey."
+        ],
+        resources: [
+          "Python Basics: https://www.learnpython.org/",
+          "Automate the Boring Stuff: https://automatetheboringstuff.com/",
+          "GitHub Basics: https://docs.github.com/en/get-started",
+          "Intro to Al (YouTube): https://www.youtube.com/watch?v=JMUxmLyrhSk"
+        ]
+      },
+      {
+        id: "w2", title: "Week 2: Prompt Engineering Basics", goal: "Goal: Learn the science of talking to Al.",
+        tasks: [
+          "1. Understand zero-shot, few-shot, and role-based prompting.",
+          "2. Learn the difference between temperature, max tokens, and top-p.",
+          "3. Practice writing prompts for text generation, summarization, and rewriting.",
+          "4. Create your prompt library in Notion/Google Docs.",
+          "5. Document prompts for different domains (research, HR, coding, content writing).",
+          "6. Practice prompts on multiple LLMS (ChatGPT, Claude, Gemini)."
+        ],
+        resources: [
+          "Prompting Guide: https://www.promptingguide.ai/",
+          "OpenAl Cookbook: https://github.com/openai/openai-cookbook",
+          "DeepLearning. Al Prompt Engineering Course: https://learn.deeplearning.ai"
+        ]
+      },
+      {
+        id: "w3", title: "Week 3: Advanced Prompt Engineering", goal: "Goal: Master advanced prompting techniques.",
+        tasks: [
+          "1. Learn chain-of-thought (CoT) prompting for reasoning tasks.",
+          "2. Explore self-consistency and multi-turn prompts.",
+          "3. Learn how to build system prompts for structured workflows.",
+          "4. Practice creating prompt templates for automation workflows.",
+          "5. Explore prompt compression and optimization techniques.",
+          "6. Start building domain-specific prompts (Education, Healthcare, Business)."
+        ],
+        resources: [
+          "Anthropic Prompting Guide: https://docs.anthropic.com/claude/docs",
+          "OpenAl Advanced Prompting Examples: https://platform.openai.com/examples",
+          "Awesome Prompt Engineering Repo: https://github.com/dair-ai/awesome-prompt-engineering"
+        ]
+      },
+      {
+        id: "w4", title: "Week 4: No-Code Al Automation", goal: "Goal: Build workflows with no-code automation tools.",
+        tasks: [
+          "1. Learn Zapier basics for automation.",
+          "2. Learn Make.com to connect multiple apps with Al.",
+          "3. Explore n8n for open-source automation.",
+          "4. Automate workflows: Save emails to Google Sheets. Auto-generate LinkedIn posts with GPT. Summarize news daily using Al.",
+          "5. Build 3 no-code Al automation workflows.",
+          "6. Document automation projects for your portfolio."
+        ],
+        resources: [
+          "Zapier Al Guide: https://zapier.com/blog/ai-automation/",
+          "Make.com Academy: https://www.make.com/en/academy",
+          "n8n Docs: https://docs.n8n.io/"
+        ]
+      },
+      {
+        id: "w5", title: "Week 5: Python for Automation", goal: "Goal: Automate tasks using Python.",
+        tasks: [
+          "1. Learn Python libraries: os, time, schedule, shutil.",
+          "2. Write scripts for: File/folder organization. Sending daily reminders. Cleaning CSV/Excel data.",
+          "3. Automate repetitive tasks from your own computer.",
+          "4. Use schedule and cron jobs for task scheduling.",
+          "5. Create an automation project repo on GitHub.",
+          "6. Document scripts with README files."
+        ],
+        resources: [
+          "Automate the Boring Stuff: https://automatetheboringstuff.com/",
+          "Schedule Library: https://schedule.readthedocs.io/en/stable/",
+          "Real Python Automation: https://realpython.com/"
+        ]
+      },
+      {
+        id: "w6", title: "Week 6: Web Automation & Scraping", goal: "Goal: Automate interactions with websites.",
+        tasks: [
+          "1. Learn web scraping using BeautifulSoup & Requests.",
+          "2. Use Selenium/Playwright for browser automation.",
+          "3. Automate: Logging into websites. Scraping job postings. Auto-filling forms.",
+          "4. Build a script to scrape jobs & send summaries with GPT.",
+          "5. Document step-by-step automation workflows.",
+          "6. Add project to your GitHub portfolio."
+        ],
+        resources: [
+          "BeautifulSoup Tutorial: https://realpython.com/beautiful-soup-web-scraper-python/",
+          "Selenium Docs: https://www.selenium.dev/documentation/",
+          "Playwright Python: https://playwright.dev/python/docs/intro"
+        ]
+      },
+      {
+        id: "w7", title: "Week 7: API Automation Basics", goal: "Goal: Learn API fundamentals for automation.",
+        tasks: [
+          "1. Understand REST API basics (GET, POST, PUT).",
+          "2. Use requests in Python to fetch data from APIs.",
+          "3. Automate: Fetching news/weather data. Sending Slack/Telegram/WhatsApp alerts. Posting tweets automatically.",
+          "4. Learn API authentication (keys, tokens, OAuth).",
+          "5. Combine multiple APIs in one script.",
+          "6. Document API projects in GitHub."
+        ],
+        resources: [
+          "REST API Guide: https://restfulapi.net/",
+          "Requests Library: https://requests.readthedocs.io/en/latest/",
+          "Twitter API: https://developer.x.com/en/docs"
+        ]
+      },
+      {
+        id: "w8", title: "Week 8: AI API Automation", goal: "Goal: Automate workflows using GenAl APIs.",
+        tasks: [
+          "1. Learn OpenAl API basics.",
+          "2. Create automation scripts: Email writer bot. PDF summarizer bot. Content idea generator.",
+          "3. Combine OpenAI API with Gmail, Google Sheets, Slack.",
+          "4. Learn Hugging Face API for free models.",
+          "5. Build an end-to-end Al content workflow.",
+          "6. Share project publicly on GitHub."
+        ],
+        resources: [
+          "OpenAl API Docs: https://platform.openai.com/docs/",
+          "Hugging Face Models: https://huggingface.co/models",
+          "Cohere API: https://docs.cohere.com/docs"
+        ]
+      },
+      {
+        id: "w9", title: "Week 9: End-to-End Al Workflows", goal: "Goal: Build complete Al pipelines.",
+        tasks: [
+          "1. Learn Airflow basics for orchestrating workflows.",
+          "2. Build pipelines: Job scraping → Resume generator → Email sender. Customer feedback → Al summary → Slack alert. YouTube transcript → Blog generator.",
+          "3. Learn error handling and logging in automation.",
+          "4. Practice pipeline deployment on cloud (Render/Heroku).",
+          "5. Document end-to-end workflows as case studies.",
+          "6. Add workflow diagrams to portfolio."
+        ],
+        resources: [
+          "Airflow Docs: https://airflow.apache.org/docs/",
+          "LangChain Docs: https://python.langchain.com/docs/"
+        ]
+      },
+      {
+        id: "w10", title: "Week 10: Al Agents (Intro)", goal: "Goal: Learn autonomous Al agents.",
+        tasks: [
+          "1. Understand what Al agents are and how they work.",
+          "2. Explore AutoGPT, BabyAGI, and CrewAl.",
+          "3. Build a simple research agent that fetches & summarizes.",
+          "4. Deploy your first personal Al assistant.",
+          "5. Document prompts + architecture for agents.",
+          "6. Share project on LinkedIn/GitHub."
+        ],
+        resources: [
+          "AutoGPT Repo: https://github.com/Torantulino/Auto-GPT",
+          "BabyAGI Repo: https://github.com/yoheinakajima/babyagi",
+          "CrewAl Repo: https://github.com/joaomdmoura/crewAl"
+        ]
+      },
+      {
+        id: "w11", title: "Week 11: Robotic Process Automation (RPA)", goal: "Goal: Automate business workflows.",
+        tasks: [
+          "1. Learn RPA basics with UiPath/TagUI.",
+          "2. Automate: Invoice processing. PDF extraction. Excel reporting.",
+          "3. Connect RPA with Al APIs (OpenAl for summarization).",
+          "4. Build Al-powered office automation.",
+          "5. Document business automation workflows.",
+          "6. Create GitHub repo for RPA + Al projects."
+        ],
+        resources: [
+          "UiPath Academy: https://academy.uipath.com/",
+          "TagUI Docs: https://tagui.readthedocs.io/en/latest/"
+        ]
+      },
+      {
+        id: "w12", title: "Week 12: Data Automation & RAG", goal: "Goal: Automate knowledge workflows with private data.",
+        tasks: [
+          "1. Learn vector databases (FAISS, Pinecone, Weaviate).",
+          "2. Understand embeddings for semantic search.",
+          "3. Build a PDF Q&A bot.",
+          "4. Automate knowledge retrieval from documents.",
+          "5. Deploy RAG system for personal data.",
+          "6. Document & showcase project."
+        ],
+        resources: [
+          "FAISS Repo: https://github.com/facebookresearch/faiss",
+          "Pinecone Docs: https://docs.pinecone.io/",
+          "Weaviate Docs: https://weaviate.io/developers/weaviate"
+        ]
+      },
+      {
+        id: "w13", title: "Week 13: Multimodal Al Automation", goal: "Goal: Work with images, voice, and video.",
+        tasks: [
+          "1. Use Whisper for speech-to-text automation.",
+          "2. Automate voice notes → Task list.",
+          "3. Use Stable Diffusion/DALL E for image generation workflows.",
+          "4. Build Al video summarizer pipeline.",
+          "5. Integrate ElevenLabs for voice cloning.",
+          "6. Document multimodal automation project."
+        ],
+        resources: [
+          "Whisper GitHub: https://github.com/openai/whisper",
+          "Stable Diffusion: https://github.com/AUTOMATIC1111/stable-diffusion-webui",
+          "ElevenLabs: https://elevenlabs.io/"
+        ]
+      },
+      {
+        id: "w14", title: "Week 14: Al SaaS Development", goal: "Goal: Productize automation into SaaS tools.",
+        tasks: [
+          "1. Learn Flask/Django basics for web apps.",
+          "2. Build SaaS app (Al content writer, recruiter bot, chatbot).",
+          "3. Integrate Stripe for payments.",
+          "4. Deploy app to Vercel/Render/AWS.",
+          "5. Add authentication & user accounts.",
+          "6. Document SaaS app in GitHub portfolio."
+        ],
+        resources: [
+          "Flask Docs: https://flask.palletsprojects.com/en/3.0.x/",
+          "Django Docs: https://www.djangoproject.com/start/",
+          "Stripe API: https://stripe.com/docs/api",
+          "Render Deploy: https://render.com/docs"
+        ]
+      },
+      {
+        id: "w15", title: "Week 15: Capstone Projects", goal: "Goal: Build real-world Al products.",
+        tasks: [
+          "1. Al Research Assistant (scrape → summarize → report).",
+          "2. Al Job Hunter (scrape jobs → generate resumes auto-apply).",
+          "3. Al Social Media Manager (content generator scheduler).",
+          "4. Al Data Q&A Bot (RAG with personal files).",
+          "5. Al Customer Support Chatbot for business.",
+          "6. Deploy 2-3 projects publicly and add to portfolio."
+        ],
+        resources: [
+          "Newspaper3k (Web Scraping): https://github.com/codelucas/newspaper",
+          "LangChain Resume Matching: https://python.langchain.com/docs/use cases/resume/",
+          "Instagram Automation: https://github.com/adw0rd/instagrapi",
+          "OpenAl Whisper (Speech-to-Text): https://github.com/openai/whisper",
+          "Notion API: https://developers.notion.com/",
+          "Flask Framework: https://flask.palletsprojects.com/en/3.0.x/"
+        ]
+      },
+      {
+        id: "w16", title: "Week 16: Portfolio + Career Preparation", goal: "Goal: Become job-ready.",
+        tasks: [
+          "1. Finalize GitHub portfolio with documentation.",
+          "2. Write case studies/blogs on your automation projects.",
+          "3. Optimize LinkedIn for Al + Automation roles.",
+          "4. Apply to jobs: Al Automation Specialist, Prompt Engineer, GenAl Expert.",
+          "5. Explore freelancing on Upwork, Fiverr, Toptal.",
+          "6. Start building personal brand (LinkedIn posts, GitHub contributions)."
+        ],
+        resources: [
+          "Prompt Engineer Jobs: https://promptengineerjobs.com/",
+          "Upwork Al Jobs: https://www.upwork.com/freelance-jobs/ai/",
+          "Fiverr Al Services: https://www.fiverr.com/categories/programming-tech/ai-development"
+        ]
+      }
+    ];
+
+    const { useState, useEffect, useCallback } = React;
+
+    function App() {
+      const [user, setUser] = useState(null);
+      const [progress, setProgress] = useState({});
+      const [notes, setNotes] = useState({});
+      const [loading, setLoading] = useState(true);
+
+      useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged((currentUser) => {
+          if (currentUser) {
+            setUser(currentUser);
+            fetchUserData(currentUser.uid);
+          } else {
+            setUser(null);
+            setProgress({});
+            setNotes({});
+            setLoading(false);
+          }
+        });
+        return () => unsubscribe();
+      }, []);
+
+      const fetchUserData = async (uid) => {
+        try {
+          const docRef = db.collection("users").doc(uid);
+          const doc = await docRef.get();
+          if (doc.exists) {
+            const data = doc.data();
+            setProgress(data.progress || {});
+            setNotes(data.notes || {});
+          }
+        } catch (error) {
+          console.error("Error fetching data: ", error);
+        }
+        setLoading(false);
+      };
+
+      const toggleTask = (weekId, taskIndex) => {
+        if (!user) return alert("Please sign in to track progress.");
+        const key = `${weekId}-${taskIndex}`;
+        const updatedProgress = { ...progress, [key]: !progress[key] };
+        setProgress(updatedProgress);
+        db.collection("users").doc(user.uid).set({ progress: updatedProgress }, { merge: true });
+      };
+
+      const updateNote = (weekId, value) => {
+        if (!user) return alert("Please sign in to save notes.");
+        const updatedNotes = { ...notes, [weekId]: value };
+        setNotes(updatedNotes);
+        db.collection("users").doc(user.uid).set({ notes: updatedNotes }, { merge: true });
+      };
+
+      const handleSignIn = () => auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+      const handleSignOut = () => auth.signOut();
+
+      const calculateTotalProgress = () => {
+        const totalTasks = ROADMAP_DATA.reduce((acc, week) => acc + week.tasks.length, 0);
+        const completedTasks = Object.values(progress).filter(Boolean).length;
+        return totalTasks === 0 ? 0 : Math.round((completedTasks / totalTasks) * 100);
+      };
+
+      return (
+        <div className="max-w-4xl mx-auto p-4 sm:p-6 lg:p-8">
+          <header className="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-gray-800 pb-6 mb-8">
+            <div>
+              <h1 className="text-3xl font-bold text-white mb-2">16-Week Gen AI Roadmap</h1>
+              <p className="text-gray-400">Track your journey to becoming a Gen AI Expert</p>
+            </div>
+            <div className="mt-4 sm:mt-0">
+              {loading ? (
+                <span className="text-gray-500">Loading...</span>
+              ) : user ? (
+                <div className="flex items-center gap-4">
+                  <span className="text-sm text-green-400 font-mono">Syncing as {user.email}</span>
+                  <button onClick={handleSignOut} className="px-4 py-2 text-sm bg-gray-800 hover:bg-gray-700 rounded transition-colors">Sign Out</button>
+                </div>
+              ) : (
+                <button onClick={handleSignIn} className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded transition-colors shadow-lg shadow-blue-900/20">
+                  Sign in with Google
+                </button>
+              )}
+            </div>
+          </header>
+
+          <div className="bg-gray-900 p-6 rounded-xl border border-gray-800 mb-8 shadow-sm">
+            <div className="flex justify-between items-end mb-2">
+              <span className="text-sm font-semibold uppercase tracking-wider text-gray-400">Overall Completion</span>
+              <span className="text-2xl font-bold text-blue-400">{calculateTotalProgress()}%</span>
+            </div>
+            <div className="w-full bg-gray-800 rounded-full h-2.5 overflow-hidden">
+              <div className="bg-blue-500 h-2.5 rounded-full transition-all duration-500 ease-out" style={{ width: `${calculateTotalProgress()}%` }}></div>
+            </div>
+          </div>
+
+          <div className="space-y-6">
+            {ROADMAP_DATA.map((week) => {
+              const weekTasksCompleted = week.tasks.filter((_, i) => progress[`${week.id}-${i}`]).length;
+              const isWeekComplete = weekTasksCompleted === week.tasks.length;
+
+              return (
+                <div key={week.id} className={`bg-gray-900 rounded-xl border ${isWeekComplete ? 'border-green-500/30' : 'border-gray-800'} overflow-hidden shadow-sm transition-colors`}>
+                  <div className="p-5 border-b border-gray-800 bg-gray-900/50">
+                    <h2 className="text-xl font-bold text-white mb-1">{week.title}</h2>
+                    <p className="text-sm text-blue-400 font-medium">{week.goal}</p>
+                  </div>
+                  <div className="p-5 grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                      <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-4">Tasks</h3>
+                      <div className="space-y-3">
+                        {week.tasks.map((task, index) => {
+                          const isChecked = !!progress[`${week.id}-${index}`];
+                          return (
+                            <label key={index} className="flex items-start gap-3 cursor-pointer group">
+                              <div className="mt-0.5 relative flex items-center justify-center">
+                                <input type="checkbox" checked={isChecked} onChange={() => toggleTask(week.id, index)} className="peer sr-only" />
+                                <div className="w-5 h-5 border-2 border-gray-600 rounded bg-gray-800 peer-checked:bg-blue-500 peer-checked:border-blue-500 transition-colors"></div>
+                                {isChecked && (
+                                  <svg className="absolute w-3 h-3 text-white pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                                  </svg>
+                                )}
+                              </div>
+                              <span className={`text-sm leading-relaxed transition-colors ${isChecked ? 'text-gray-500 line-through' : 'text-gray-300 group-hover:text-white'}`}>{task}</span>
+                            </label>
+                          );
+                        })}
+                      </div>
+                    </div>
+                    <div className="flex flex-col gap-6">
+                      <div>
+                        <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-4">Resources</h3>
+                        <ul className="space-y-2">
+                          {week.resources.map((res, i) => {
+                            const parts = res.split(/(https?:\/\/[^\s]+)/g);
+                            return (
+                              <li key={i} className="text-sm text-gray-300 bg-gray-800/50 p-2.5 rounded border border-gray-700/50">
+                                {parts.map((part, j) => part.startsWith('http') ? <a key={j} href={part} target="_blank" rel="noreferrer" className="text-blue-400 hover:text-blue-300 hover:underline break-all">{part}</a> : <span key={j}>{part}</span>)}
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </div>
+                      <div className="flex-1 flex flex-col">
+                        <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">My Notes</h3>
+                        <textarea value={notes[week.id] || ""} onChange={(e) => updateNote(week.id, e.target.value)} placeholder="Jot down key takeaways, commands, or thoughts..." className="flex-1 w-full bg-gray-800 border border-gray-700 rounded-lg p-3 text-sm text-gray-200 placeholder-gray-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 resize-y min-h-[100px]"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      );
+    }
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>
